@@ -14,11 +14,11 @@ func View1(session neo4j.Session, params map[string]interface{}) {
 	MERGE (e:ENTITY {ip: $host_ip, hostname: $hostname, view: 1})
 	ON CREATE SET e.count = 1
 	ON MATCH SET e.count = e.count + 1
-	MERGE (summary:TYPE_SUMMARY_%s {ip: $host_ip, hostname: $hostname, type: $type, view: 1})
+	MERGE (summary:%s_TYPE_SUMMARY {ip: $host_ip, hostname: $hostname, type: $type, view: 1})
 	ON CREATE SET summary.count = 1
 	ON MATCH SET summary.count = summary.count + 1
 	MERGE (e)-[:%s{view: 1}]->(summary)
-	MERGE (nsummary:NAME_SUMMARY_%s {ip: $host_ip, hostname: $hostname, name: $name, type: $type, view: 1})
+	MERGE (nsummary:%s_NAME_SUMMARY {ip: $host_ip, hostname: $hostname, name: $name, type: $type, view: 1})
 	ON CREATE SET nsummary.count = 1
 	ON MATCH SET nsummary.count = nsummary.count + 1
 	MERGE (summary)-[:%s{view: 1}]->(nsummary)`, params["type"], params["type"], params["name"], params["name"])
