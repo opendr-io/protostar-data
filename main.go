@@ -64,11 +64,12 @@ func insert(session neo4j.Session, filename string) {
 func main() {
 	// Read JSON data
 
+	// Enable one of the auth credentials
 	// local data
 	// driver, session := auth.GetSession("bolt://localhost:7689", "neo4j", "password", false)
 
 	// salvation repo specific neo4j/bloom instance
-	driver, session := auth.GetSession("neo4j://0be49792.databases.neo4j.io:7687", "neo4j", "fys_3-CXWNk3yyVJRB5OiiV6DWJgYAcDT6utohtNv_s", true)
+	//driver, session := auth.GetSession("neo4j://0be49792.databases.neo4j.io:7687", "neo4j", "fys_3-CXWNk3yyVJRB5OiiV6DWJgYAcDT6utohtNv_s", true)
 
 	// very new
 	// driver, session := auth.GetSession("neo4j://2f5bef42.databases.neo4j.io:7687", "neo4j", "zNeN7IymiYNAx-sWdBYUmNbGid61jUR8AkdWtngbOL8", true)
