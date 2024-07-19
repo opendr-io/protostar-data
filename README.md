@@ -23,6 +23,6 @@ The idea is to have multiple views that will crunch the data in a consumable for
 
 ## Running Dev/Test Instances
 
-Neo4j http://18.215.233.59:7474/browser/
-Skynet http://18.215.233.59:3000/view1
+Neo4j:   http://18.215.233.59:7474/browser/<br />
+Skynet:   http://18.215.233.59:3000/view1<br />
 SSH access: use the project key
