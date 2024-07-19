@@ -20,3 +20,9 @@ Two ways - Download bloom desktop for optimal performance/development (insertion
 ### Ideas
 
 The idea is to have multiple views that will crunch the data in a consumable format for the end user inorder to make informed decisions in less amount of time
+
+## Running DEv/Test Instances
+
+Neo4j http://18.215.233.59:7474/browser/
+Skynet http://18.215.233.59:3000/view1
+SSH access: use the project key
