@@ -42,7 +42,7 @@ func insert(session neo4j.Session, filename string) {
 			"category":     value.Get("category").String(),
 			"mitre_tactic": value.Get("mitre_tactic").String(),
 			"entity":       value.Get("entity").String(),
-			//"entity_type":  value.Get("entity_type").String(),
+			"entity_type":  value.Get("entity_type").String(),
 			"host_ip":      value.Get("host_ip").String(),
 			"source_ip":    value.Get("source_ip").String(),
 			"dest_ip":      value.Get("dest_ip").String(),
@@ -86,7 +86,7 @@ func main() {
 	// Delete everything to reset the graph before insertion
 	utils.DeleteAll(session)
 
-	//insert(session, "data/inputs.json")
+	insert(session, "data/inputs.json")
 	insert(session, "data/ct.json")
 
 	fmt.Println("Data imported successfully.")
