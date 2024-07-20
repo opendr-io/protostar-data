@@ -36,12 +36,13 @@ func insert(session neo4j.Session, filename string) {
 			"source":       value.Get("source").String(),
 			"guid":         value.Get("guid").String(),
 			"timestamp":    value.Get("timestamp").String(),
-			"type":         value.Get("type").String(),
+			"detection_type":  value.Get("detection_type").String(),
 			"name":         value.Get("name").String(),
 			"severity":     value.Get("severity").String(),
 			"category":     value.Get("category").String(),
 			"mitre_tactic": value.Get("mitre_tactic").String(),
-			"hostname":     value.Get("hostname").String(),
+			"entity":       value.Get("entity").String(),
+			//"entity_type":  value.Get("entity_type").String(),
 			"host_ip":      value.Get("host_ip").String(),
 			"source_ip":    value.Get("source_ip").String(),
 			"dest_ip":      value.Get("dest_ip").String(),
@@ -86,6 +87,7 @@ func main() {
 	utils.DeleteAll(session)
 
 	insert(session, "data/inputs.json")
+	insert(session, "data/ct.json")
 
 	fmt.Println("Data imported successfully.")
 }
