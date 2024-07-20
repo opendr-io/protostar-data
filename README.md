@@ -29,5 +29,5 @@ SSH access: use the project key
 ```
 To check for entity dupes, use:
 MATCH (n:ENTITY)
-RETURN properties(n) AS props, labels(n) AS entity_type
+RETURN (n)
 ```
