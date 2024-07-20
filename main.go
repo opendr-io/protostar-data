@@ -67,7 +67,7 @@ func main() {
 
 	// Enable one of the auth credentials
 	// local data
-	 //driver, session := auth.GetSession("bolt://localhost:7687", "neo4j", "password", false)
+	 driver, session := auth.GetSession("bolt://localhost:7687", "neo4j", "password", false)
 
 	// salvation repo specific neo4j/bloom instance
 	//driver, session := auth.GetSession("neo4j://0be49792.databases.neo4j.io:7687", "neo4j", "fys_3-CXWNk3yyVJRB5OiiV6DWJgYAcDT6utohtNv_s", true)
