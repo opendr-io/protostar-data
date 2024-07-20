@@ -86,7 +86,7 @@ func main() {
 	// Delete everything to reset the graph before insertion
 	utils.DeleteAll(session)
 
-	insert(session, "data/inputs.json")
+	//insert(session, "data/inputs.json")
 	insert(session, "data/ct.json")
 
 	fmt.Println("Data imported successfully.")

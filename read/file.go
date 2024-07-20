@@ -39,7 +39,7 @@ func JSONFile(filename string) string {
 			log.Fatal(err)
 		}
 
-		alert_type := value.Get("type").String()
+		alert_type := value.Get("detection_type").String()
 		cleanAlertTypeName := reg.ReplaceAllString(alert_type, "_")
 		cleanAlertTypeName = strings.ToUpper(cleanAlertTypeName)
 		// fmt.Println(cleanAlertTypeName, alert_type)
