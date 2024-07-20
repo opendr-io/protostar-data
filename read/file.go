@@ -44,7 +44,7 @@ func JSONFile(filename string) string {
 		cleanAlertTypeName = strings.ToUpper(cleanAlertTypeName)
 		// fmt.Println(cleanAlertTypeName, alert_type)
 		// os.Exit(1)
-		modifiedJSON, err = sjson.Set(modifiedJSON, fmt.Sprintf("%s.type", key.String()), cleanAlertTypeName)
+		modifiedJSON, err = sjson.Set(modifiedJSON, fmt.Sprintf("%s.detection_type", key.String()), cleanAlertTypeName)
 		if err != nil {
 			log.Fatal(err)
 		}
