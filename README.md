@@ -27,8 +27,8 @@ Neo4j:   http://18.215.233.59:7474/browser/<br />
 Skynet:   http://18.215.233.59:3000/view1<br />
 SSH access: use the project key
 
-```
 To check for entity dupes, use:
+```
 MATCH (n:ENTITY)
 RETURN (n)
 ```
