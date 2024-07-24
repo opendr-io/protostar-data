@@ -18,6 +18,7 @@ import (
 func insert(session neo4j.Session, filename string) {
 
 	// modifiedJSON := read.ReadFile(filename)
+	fmt.Printf("Reading data from %s\n", filename)
 	file, err := os.ReadFile(filename)
 	if err != nil {
 		log.Fatalf("Unable to read file - %s", filename)
