@@ -2,9 +2,12 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"os"
+	"regexp"
+	"strings"
 
 	"github.com/cyberdyne-ventures/salvation/auth"
-	"github.com/cyberdyne-ventures/salvation/read"
 	"github.com/cyberdyne-ventures/salvation/utils"
 	"github.com/cyberdyne-ventures/salvation/views"
 	"github.com/neo4j/neo4j-go-driver/neo4j"
@@ -14,11 +17,16 @@ import (
 
 func insert(session neo4j.Session, filename string) {
 
-	modifiedJSON := read.JSONFile(filename)
+	// modifiedJSON := read.ReadFile(filename)
+	file, err := os.ReadFile(filename)
+	if err != nil {
+		log.Fatalf("Unable to read file - %s", filename)
+	}
+	modifiedJSON := string(file)
 
 	totalItems := int(gjson.Parse(modifiedJSON).Get("#").Int())
 	bar := progressbar.NewOptions(totalItems,
-		progressbar.OptionSetDescription("Processing JSON data"),
+		progressbar.OptionSetDescription(fmt.Sprintf("Processing JSON data from %s", filename)),
 		progressbar.OptionSetWidth(50),
 		progressbar.OptionShowCount(),
 		progressbar.OptionSetPredictTime(false),
@@ -30,14 +38,15 @@ func insert(session neo4j.Session, filename string) {
 			BarEnd:        "]",
 		}),
 	)
+	var reg = regexp.MustCompile(`[^a-zA-Z0-9]+`)
 
 	gjson.Parse(modifiedJSON).ForEach(func(key, value gjson.Result) bool {
 		params := map[string]interface{}{
 			"source":       value.Get("source").String(),
 			"guid":         value.Get("guid").String(),
 			"timestamp":    value.Get("timestamp").String(),
-			"type":         value.Get("type").String(),
-			"name":         value.Get("name").String(),
+			"type":         strings.ToUpper(reg.ReplaceAllString(value.Get("type").String(), "_")),
+			"name":         strings.ToUpper(reg.ReplaceAllString(value.Get("name").String(), "_")),
 			"severity":     value.Get("severity").String(),
 			"category":     value.Get("category").String(),
 			"mitre_tactic": value.Get("mitre_tactic").String(),
@@ -66,7 +75,7 @@ func main() {
 
 	// Enable one of the auth credentials
 	// local data
-	// driver, session := auth.GetSession("bolt://localhost:7689", "neo4j", "password", false)
+	driver, session := auth.GetSession("bolt://localhost:7687", "neo4j", "password", false)
 
 	// salvation repo specific neo4j/bloom instance
 	//driver, session := auth.GetSession("neo4j://0be49792.databases.neo4j.io:7687", "neo4j", "fys_3-CXWNk3yyVJRB5OiiV6DWJgYAcDT6utohtNv_s", true)
@@ -86,6 +95,7 @@ func main() {
 	utils.DeleteAll(session)
 
 	insert(session, "data/inputs.json")
+	insert(session, "data/40k.json")
 
 	fmt.Println("Data imported successfully.")
 }
