@@ -24,10 +24,10 @@ func FilterJSONData(jsonString string) string {
 		}
 
 		// replace all special chars with _ and make it uppercase
-		cleanAlertTypeName := strings.ToUpper(reg.ReplaceAllString(value.Get("type").String(), "_"))
+		cleanAlertTypeName := strings.ToUpper(reg.ReplaceAllString(value.Get("detection_type").String(), "_"))
 		// fmt.Println(cleanAlertTypeName, alert_type)
 		// os.Exit(1)
-		modifiedJSON, err = sjson.Set(modifiedJSON, fmt.Sprintf("%s.type", key.String()), cleanAlertTypeName)
+		modifiedJSON, err = sjson.Set(modifiedJSON, fmt.Sprintf("%s.detection_type", key.String()), cleanAlertTypeName)
 		if err != nil {
 			log.Fatal(err)
 		}

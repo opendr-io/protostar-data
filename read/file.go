@@ -39,12 +39,12 @@ func JSONFile(filename string) string {
 			log.Fatal(err)
 		}
 
-		alert_type := value.Get("type").String()
+		alert_type := value.Get("detection_type").String()
 		cleanAlertTypeName := reg.ReplaceAllString(alert_type, "_")
 		cleanAlertTypeName = strings.ToUpper(cleanAlertTypeName)
 		// fmt.Println(cleanAlertTypeName, alert_type)
 		// os.Exit(1)
-		modifiedJSON, err = sjson.Set(modifiedJSON, fmt.Sprintf("%s.type", key.String()), cleanAlertTypeName)
+		modifiedJSON, err = sjson.Set(modifiedJSON, fmt.Sprintf("%s.detection_type", key.String()), cleanAlertTypeName)
 		if err != nil {
 			log.Fatal(err)
 		}
