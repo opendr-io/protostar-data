@@ -29,7 +29,7 @@ func DeleteAll(session neo4j.Session) {
 
 		if totalCountBefore == 0 {
 			fmt.Println("No more nodes to delete.")
-			// break
+			break
 		}
 
 		// Run the deletion query
