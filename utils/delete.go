@@ -33,7 +33,7 @@ func DeleteAll(session neo4j.Session) {
 		}
 
 		// Run the deletion query
-		_, err = session.Run(`CALL { MATCH (n) WITH n LIMIT 20000 RETURN n } DETACH DELETE n`, nil)
+		_, err = session.Run(`CALL { MATCH (n) WITH n LIMIT 10000 RETURN n } DETACH DELETE n`, nil)
 		if err != nil {
 			log.Fatalf("Failed to run deletion query: %v", err)
 			return
