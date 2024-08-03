@@ -74,21 +74,10 @@ func insert(session neo4j.Session, filename string) {
 }
 
 func main() {
-	// Read JSON data
-
-	// Enable one of the auth credentials
 	// local data
+	// This is default password. DO NOT USE IN PRODUCTION
 	driver, session := auth.GetSession("bolt://localhost:7687", "neo4j", "password", false)
 
-	// salvation repo specific neo4j/bloom instance
-	//driver, session := auth.GetSession("neo4j://0be49792.databases.neo4j.io:7687", "neo4j", "fys_3-CXWNk3yyVJRB5OiiV6DWJgYAcDT6utohtNv_s", true)
-
-	// very new
-	// driver, session := auth.GetSession("neo4j://2f5bef42.databases.neo4j.io:7687", "neo4j", "zNeN7IymiYNAx-sWdBYUmNbGid61jUR8AkdWtngbOL8", true)
-	// new data
-	// driver, session := auth.GetSession("neo4j://8ca4dcdd.databases.neo4j.io:7687", "neo4j", "c6ZkuLYD4L6w_MCf2l8Uq6NfOpqjJMexRJ3DUSp9g0Q", true)
-	// old data
-	// driver, session := auth.GetSession("neo4j://d0d8db91.databases.neo4j.io:7687", "neo4j", "AS2hH3cRvEi5aJYS4n_DhqU4WOKYkrYJWkr7ngjUmhY", true)
 	fmt.Println("Driver = ", driver)
 	fmt.Println("Session = ", session)
 	defer driver.Close()
@@ -98,12 +87,10 @@ func main() {
 	utils.DeleteAll(session)
 
 	insert(session, "data/inputs.json")
-	insert(session, "data/40k.json")
 	insert(session, "data/ct.json")
 	insert(session, "data/hot-3.json")
 	insert(session, "data/cloudtrail-3k.json")
 	insert(session, "data/isotopes-4.json")
-	insert(session, "data/linux.json")
 
 	fmt.Println("Data imported successfully.")
 }
