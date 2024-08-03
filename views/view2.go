@@ -21,7 +21,7 @@ func View2(session neo4j.Session, params map[string]interface{}) {
 	MATCH (e:ENTITY {ip: $host_ip, entity: $entity, entity_type: $entity_type, view: 2})
 
 	// Merge the SEVERITY_CLUSTER node and update its count
-	MERGE (scs:SEVERITY_CLUSTER {ip: $host_ip, entity: $entity, entity_type: $entity_type, view: 2, source_ip: $source_ip, dest_ip: $dest_ip, severity: $severity})
+	MERGE (scs:SEVERITY_CLUSTER {ip: $host_ip, entity: $entity, entity_type: $entity_type, view: 2, severity: $severity})
 	ON CREATE SET scs.count = 1
 	ON MATCH SET scs.count = scs.count + 1
 
@@ -29,7 +29,7 @@ func View2(session neo4j.Session, params map[string]interface{}) {
 	MERGE (e)-[:HAS_SEVERITY]->(scs)
 
 	// Merge the NAME_CLUSTER node and update its count
-	MERGE (ncs:NAME_CLUSTER {ip: $host_ip, entity: $entity, entity_type: $entity_type, view: 2, source_ip: $source_ip, dest_ip: $dest_ip, severity: $severity, name: $name})
+	MERGE (ncs:NAME_CLUSTER {ip: $host_ip, entity: $entity, entity_type: $entity_type, view: 2, severity: $severity, name: $name})
 	ON CREATE SET ncs.count = 1
 	ON MATCH SET ncs.count = ncs.count + 1
 
