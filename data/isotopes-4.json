@@ -1,6 +1,6 @@
 [
   {
-    "timestamp": "2022-07-22 21:19:47.640",
+    "timestamp": "2024-07-22 21:19:47.640",
     "guid": "itgs3ZAB5NuomnyaZvQw",
     "dest_ip": "10.142.0.3",
     "dest_port": 80,
@@ -15,7 +15,7 @@
     "detection_type": "suricata alert"
   },
   {
-    "timestamp": "2022-07-22 21:17:36.910",
+    "timestamp": "2024-07-22 21:17:36.910",
     "guid": "0kQq3ZABC7ekjnS9fYuA",
     "dest_ip": "10.142.0.3",
     "dest_port": 80,
@@ -32,7 +32,7 @@
     "detection_type": "suricata alert"
   },
   {
-    "timestamp": "2022-07-22 21:19:47.640",
+    "timestamp": "2024-07-22 21:19:47.640",
     "guid": "jdgs3ZAB5NuomnyaZvQw",
     "dest_ip": "10.142.0.3",
     "dest_port": 80,
@@ -48,7 +48,7 @@
     "detection_type": "stable isotope"
   },
   {
-    "timestamp": "2022-07-22 21:19:47.640",
+    "timestamp": "2024-07-22 21:19:47.640",
     "guid": "jdgs3ZAB5NuomnyaZvQw",
     "dest_ip": "10.142.0.3",
     "dest_port": 80,
@@ -64,7 +64,7 @@
     "detection_type": "stable isotope"
   },
   {
-    "timestamp": "2022-07-22 21:19:47.640",
+    "timestamp": "2024-07-22 21:19:47.640",
     "guid": "jNgs3ZAB5NuomnyaZvQw",
     "dest_ip": "35.237.133.182",
     "dst.asn": "GOOGLE-CLOUD-PLATFORM",
@@ -82,7 +82,7 @@
     "detection_type": "stable isotope"
   },
   {
-    "timestamp": "2022-07-22 21:19:47.640",
+    "timestamp": "2024-07-22 21:19:47.640",
     "guid": "itgs3ZAB5NuomnyaZvQw",
     "dest_ip": "10.142.0.3",
     "dest_port": 80,
@@ -98,7 +98,7 @@
     "detection_type": "network - anomaly"
   },
   {
-    "timestamp": "2022-07-22 21:19:47.640",
+    "timestamp": "2024-07-22 21:19:47.640",
     "guid": "i9gs3ZAB5NuomnyaZvQw",
     "dest_ip": "10.142.0.3",
     "dest_port": 80,
@@ -116,7 +116,7 @@
     "detection_type": "network - anomaly"
   },
   {
-    "timestamp": "2022-07-22 21:19:47.640",
+    "timestamp": "2024-07-22 21:19:47.640",
     "guid": "jNgs3ZAB5NuomnyaZvQw",
     "dest_ip": "35.237.133.182",
     "dst.asn": "GOOGLE-CLOUD-PLATFORM",
