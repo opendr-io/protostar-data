@@ -1,6 +1,6 @@
 [
   {
-    "timestamp": "Jul 22, 2024 @ 10:13:37.127",
+    "timestamp": "2024-07-22 10:13:37.127",
     "category": "Isotope",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -6534,7 +6534,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 23:46:22.322",
+    "timestamp": "2024-07-22 23:46:22.322",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -6552,7 +6552,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 23:10:20.264",
+    "timestamp": "2024-07-22 23:10:20.264",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6570,7 +6570,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 23:10:20.264",
+    "timestamp": "2024-07-22 23:10:20.264",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6588,7 +6588,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 22:09:17.594",
+    "timestamp": "2024-07-22 22:09:17.594",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -6606,7 +6606,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 22:09:17.594",
+    "timestamp": "2024-07-22 22:09:17.594",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -6624,7 +6624,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 20:58:38.209",
+    "timestamp": "2024-07-22 20:58:38.209",
     "category": "Potential Corporate Privacy Violation",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6642,7 +6642,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 20:58:37.917",
+    "timestamp": "2024-07-22 20:58:37.917",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6660,7 +6660,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 20:58:37.917",
+    "timestamp": "2024-07-22 20:58:37.917",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6678,7 +6678,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 20:23:44.880",
+    "timestamp": "2024-07-22 20:23:44.880",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -6696,7 +6696,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 20:23:44.880",
+    "timestamp": "2024-07-22 20:23:44.880",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -6714,7 +6714,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 20:23:44.880",
+    "timestamp": "2024-07-22 20:23:44.880",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -6732,7 +6732,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 19:43:37.796",
+    "timestamp": "2024-07-22 19:43:37.796",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6750,7 +6750,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 19:43:37.796",
+    "timestamp": "2024-07-22 19:43:37.796",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6768,7 +6768,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 19:43:37.796",
+    "timestamp": "2024-07-22 19:43:37.796",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6786,7 +6786,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 18:34:08.702",
+    "timestamp": "2024-07-22 18:34:08.702",
     "category": "Generic Protocol Command Decode",
     "dest_ip": "198.18.10.251",
     "dest_port": 49738,
@@ -6804,7 +6804,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 18:33:05.995",
+    "timestamp": "2024-07-22 18:33:05.995",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -6822,7 +6822,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 18:33:05.995",
+    "timestamp": "2024-07-22 18:33:05.995",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -6840,7 +6840,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 17:52:47.484",
+    "timestamp": "2024-07-22 17:52:47.484",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6858,7 +6858,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 17:52:47.484",
+    "timestamp": "2024-07-22 17:52:47.484",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6876,7 +6876,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 17:52:47.484",
+    "timestamp": "2024-07-22 17:52:47.484",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6894,7 +6894,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 17:02:50.392",
+    "timestamp": "2024-07-22 17:02:50.392",
     "category": "Generic Protocol Command Decode",
     "dest_ip": "198.18.10.251",
     "dest_port": 47008,
@@ -6912,7 +6912,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 17:01:47.854",
+    "timestamp": "2024-07-22 17:01:47.854",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -6930,7 +6930,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 17:01:47.771",
+    "timestamp": "2024-07-22 17:01:47.771",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -6948,7 +6948,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 16:10:13.712",
+    "timestamp": "2024-07-22 16:10:13.712",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6966,7 +6966,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 16:10:13.712",
+    "timestamp": "2024-07-22 16:10:13.712",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -6984,7 +6984,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 16:10:13.712",
+    "timestamp": "2024-07-22 16:10:13.712",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -7002,7 +7002,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 14:51:08.850",
+    "timestamp": "2024-07-22 14:51:08.850",
     "category": "Generic Protocol Command Decode",
     "dest_ip": "198.18.10.251",
     "dest_port": 44358,
@@ -7020,7 +7020,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 14:50:02.854",
+    "timestamp": "2024-07-22 14:50:02.854",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7038,7 +7038,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 14:50:02.771",
+    "timestamp": "2024-07-22 14:50:02.771",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7056,7 +7056,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 14:32:57.948",
+    "timestamp": "2024-07-22 14:32:57.948",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -7074,7 +7074,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 14:32:57.948",
+    "timestamp": "2024-07-22 14:32:57.948",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -7092,7 +7092,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 14:32:57.948",
+    "timestamp": "2024-07-22 14:32:57.948",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -7110,7 +7110,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 13:28:34.580",
+    "timestamp": "2024-07-22 13:28:34.580",
     "category": "Generic Protocol Command Decode",
     "dest_ip": "198.18.10.251",
     "dest_port": 35826,
@@ -7128,7 +7128,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 13:27:30.380",
+    "timestamp": "2024-07-22 13:27:30.380",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7146,7 +7146,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 13:27:30.380",
+    "timestamp": "2024-07-22 13:27:30.380",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7164,7 +7164,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 13:27:30.188",
+    "timestamp": "2024-07-22 13:27:30.188",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7182,7 +7182,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 13:27:30.188",
+    "timestamp": "2024-07-22 13:27:30.188",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7200,7 +7200,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 13:27:30.188",
+    "timestamp": "2024-07-22 13:27:30.188",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7218,7 +7218,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 11:46:46.282",
+    "timestamp": "2024-07-22 11:46:46.282",
     "category": "Generic Protocol Command Decode",
     "dest_ip": "198.18.10.251",
     "dest_port": 58856,
@@ -7236,7 +7236,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 11:45:42.429",
+    "timestamp": "2024-07-22 11:45:42.429",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7254,7 +7254,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 11:45:42.429",
+    "timestamp": "2024-07-22 11:45:42.429",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7272,7 +7272,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 11:45:42.226",
+    "timestamp": "2024-07-22 11:45:42.226",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7290,7 +7290,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 11:45:42.226",
+    "timestamp": "2024-07-22 11:45:42.226",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7308,7 +7308,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 11:45:42.226",
+    "timestamp": "2024-07-22 11:45:42.226",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7326,7 +7326,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 10:14:41.654",
+    "timestamp": "2024-07-22 10:14:41.654",
     "category": "Generic Protocol Command Decode",
     "dest_ip": "198.18.10.251",
     "dest_port": 59166,
@@ -7344,7 +7344,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 10:13:37.213",
+    "timestamp": "2024-07-22 10:13:37.213",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7362,7 +7362,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 10:13:37.127",
+    "timestamp": "2024-07-22 10:13:37.127",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7380,7 +7380,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 10:13:36.923",
+    "timestamp": "2024-07-22 10:13:36.923",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7398,7 +7398,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 10:13:36.923",
+    "timestamp": "2024-07-22 10:13:36.923",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7416,7 +7416,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 10:13:36.923",
+    "timestamp": "2024-07-22 10:13:36.923",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7434,7 +7434,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 08:16:42.370",
+    "timestamp": "2024-07-22 08:16:42.370",
     "category": "Generic Protocol Command Decode",
     "dest_ip": "198.18.10.251",
     "dest_port": 46678,
@@ -7452,7 +7452,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 08:15:40.805",
+    "timestamp": "2024-07-22 08:15:40.805",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7470,7 +7470,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 08:15:40.720",
+    "timestamp": "2024-07-22 08:15:40.720",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7488,7 +7488,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 08:15:40.519",
+    "timestamp": "2024-07-22 08:15:40.519",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7506,7 +7506,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 08:15:40.519",
+    "timestamp": "2024-07-22 08:15:40.519",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7524,7 +7524,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 08:15:40.519",
+    "timestamp": "2024-07-22 08:15:40.519",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7542,7 +7542,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 06:22:40.006",
+    "timestamp": "2024-07-22 06:22:40.006",
     "category": "Generic Protocol Command Decode",
     "dest_ip": "198.18.10.251",
     "dest_port": 56974,
@@ -7560,7 +7560,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 06:21:37.426",
+    "timestamp": "2024-07-22 06:21:37.426",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7578,7 +7578,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 06:21:37.345",
+    "timestamp": "2024-07-22 06:21:37.345",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7596,7 +7596,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 06:21:37.155",
+    "timestamp": "2024-07-22 06:21:37.155",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7614,7 +7614,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 06:21:37.155",
+    "timestamp": "2024-07-22 06:21:37.155",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7632,7 +7632,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 06:21:37.155",
+    "timestamp": "2024-07-22 06:21:37.155",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7650,7 +7650,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 04:59:07.200",
+    "timestamp": "2024-07-22 04:59:07.200",
     "category": "Generic Protocol Command Decode",
     "dest_ip": "198.18.10.251",
     "dest_port": 50266,
@@ -7668,7 +7668,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 04:58:01.349",
+    "timestamp": "2024-07-22 04:58:01.349",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7686,7 +7686,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 04:58:01.264",
+    "timestamp": "2024-07-22 04:58:01.264",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7704,7 +7704,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 04:58:01.074",
+    "timestamp": "2024-07-22 04:58:01.074",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7722,7 +7722,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 04:58:01.074",
+    "timestamp": "2024-07-22 04:58:01.074",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7740,7 +7740,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 04:58:01.074",
+    "timestamp": "2024-07-22 04:58:01.074",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7758,7 +7758,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 03:54:05.382",
+    "timestamp": "2024-07-22 03:54:05.382",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -7776,7 +7776,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 03:54:05.382",
+    "timestamp": "2024-07-22 03:54:05.382",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -7794,7 +7794,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 03:54:05.382",
+    "timestamp": "2024-07-22 03:54:05.382",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -7812,7 +7812,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 03:04:36.574",
+    "timestamp": "2024-07-22 03:04:36.574",
     "category": "Generic Protocol Command Decode",
     "dest_ip": "198.18.10.251",
     "dest_port": 55800,
@@ -7830,7 +7830,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 03:03:29.525",
+    "timestamp": "2024-07-22 03:03:29.525",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7848,7 +7848,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 03:03:29.525",
+    "timestamp": "2024-07-22 03:03:29.525",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7866,7 +7866,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 02:32:32.186",
+    "timestamp": "2024-07-22 02:32:32.186",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -7884,7 +7884,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 02:32:32.186",
+    "timestamp": "2024-07-22 02:32:32.186",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -7902,7 +7902,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 02:32:32.186",
+    "timestamp": "2024-07-22 02:32:32.186",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -7920,7 +7920,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 01:06:44.616",
+    "timestamp": "2024-07-22 01:06:44.616",
     "category": "Generic Protocol Command Decode",
     "dest_ip": "198.18.10.251",
     "dest_port": 33594,
@@ -7938,7 +7938,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 01:05:34.947",
+    "timestamp": "2024-07-22 01:05:34.947",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7956,7 +7956,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 01:05:34.862",
+    "timestamp": "2024-07-22 01:05:34.862",
     "category": "Attempted Administrator Privilege Gain",
     "dest_ip": "172.16.4.4",
     "dest_port": 61616,
@@ -7974,7 +7974,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 00:09:46.230",
+    "timestamp": "2024-07-22 00:09:46.230",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -7992,7 +7992,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 00:09:46.230",
+    "timestamp": "2024-07-22 00:09:46.230",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
@@ -8010,7 +8010,7 @@
 
   },
   {
-    "timestamp": "Jul 22, 2024 @ 00:09:46.230",
+    "timestamp": "2024-07-22 00:09:46.230",
     "category": "Misc Attack",
     "dest_ip": "172.16.4.4",
     "dest_port": 60001,
