@@ -1,9 +1,4 @@
-### Salvation
-
-```
-go mod tidy
-go run main.go
-```
+### Data Layer For the Skynet Project
 
 Once installed, the best way to visualize would be,
 
