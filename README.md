@@ -14,5 +14,5 @@ Two ways - Download bloom desktop for optimal performance/development (insertion
 
 ### Ideas
 
-The idea is to have multiple views that will crunch the data in a consumable format for the end user inorder to make informed decisions in less amount of time
+The idea is to have multiple views that will crunch the data in a consumable format for the end user in order to make informed decisions in less amount of time
 
