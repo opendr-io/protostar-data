@@ -1,18 +1,24 @@
+![Alt text](img/synch.jpg)
+
 ### Data Layer For the Skynet Project
 
-Once installed, the best way to visualize would be,
+For pre-processing alerts and detection artifacts, and their entities, for ingestion into the Skynet knowledge graph. Prerequisites: an instance of neo4j 
+(https://neo4j.com/product/neo4j-graph-database/)
+
+You can use the Python module in the recognizer folder to process your raw alerts or you can ingest the sample alerts in the data folder which are pre-processed. 
+
+Once installed, this is a sort of select all in the neo4j data layer:
 
 ```
 match(n:ENTITY)
 where n.view = 2
 return n
 ```
-
 ### Visualization
 
-Two ways - Download bloom desktop for optimal performance/development (insertion of queries is multiple times faster). The other option is cloud instance (use the credentials from main.go)
+After the data layer is running, download and run the web server which provides a user interface: https://github.com/cyberdyne-ventures/skynet-web
 
 ### Ideas
 
-The idea is to have multiple views that will crunch the data in a consumable format for the end user in order to make informed decisions in less amount of time
+
 
