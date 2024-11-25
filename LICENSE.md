@@ -12,8 +12,8 @@ Usage by the following classes of entities is prohibited: security software prod
 
 This provision shall not be construed to prohibit use by commercial entities, provided that the material or its derivatives are not incorporated into a product or service that is sold or resold for monetary gain or remuneration. No additional restrictions may be applied — you may not impose legal terms or technological measures that restrict others from engaging in any activities permitted by this license. For the purposes of this license, “monetary gain or remuneration” includes any activities involving the exchange of money, goods, or services, whether for profit or cost recovery. This includes, but is not limited to:
 
-    Generating revenue through the sale, resale, or licensing of the material or its derivatives.
-    Charging fees to recover costs associated with the material’s use, integration, or distribution.
+Generating revenue through the sale, resale, or licensing of the material or its derivatives.
+Charging fees to recover costs associated with the material’s use, integration, or distribution.
 
 This does not include incidental reimbursement for actual expenses incurred during noncommercial activities, such as academic or research use, provided no profit is generated. 
 
