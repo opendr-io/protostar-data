@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
 
@@ -90,7 +91,8 @@ func main() {
 		panic(err)
 	}
 	for _, file := range files {
-		insert(session, ("data\\" + file.Name()))
+		path := filepath.Join("data", file.Name())
+		insert(session, path)
 	}
 
 	fmt.Println("Data imported successfully.")
