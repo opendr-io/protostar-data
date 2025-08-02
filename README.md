@@ -1,6 +1,6 @@
 ![Alt text](img/synch.jpg)
 
-### Data Layer For the Skynet Project
+### Data Layer For the PROTOSTAR Project
 
 For pre-processing alerts and detection artifacts, and their entities, for ingestion into the Skynet knowledge graph. Prerequisites: an instance of neo4j (https://neo4j.com/product/neo4j-graph-database/) You can use the Python module in the recognizer folder to process your raw alerts or you can ingest the sample alerts in the data folder which are pre-processed. 
 
