@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
 
@@ -85,12 +86,14 @@ func main() {
 
 	// Delete everything to reset the graph before insertion
 	utils.DeleteAll(session)
-
-	insert(session, "data/inputs.json")
-	insert(session, "data/ct.json")
-	insert(session, "data/hot-3.json")
-	insert(session, "data/cloudtrail-3k.json")
-	insert(session, "data/isotopes-4.json")
+	files, err := os.ReadDir("data")
+	if err != nil {
+		panic(err)
+	}
+	for _, file := range files {
+		path := filepath.Join("data", file.Name())
+		insert(session, path)
+	}
 
 	fmt.Println("Data imported successfully.")
 }
