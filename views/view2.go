@@ -3,7 +3,7 @@ package views
 import (
 	"fmt"
 
-	"github.com/cyberdyne-ventures/salvation/utils"
+	"github.com/opendr-io/protostar-data/utils"
 	"github.com/neo4j/neo4j-go-driver/neo4j"
 )
 

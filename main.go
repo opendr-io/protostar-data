@@ -8,9 +8,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/cyberdyne-ventures/salvation/auth"
-	"github.com/cyberdyne-ventures/salvation/utils"
-	"github.com/cyberdyne-ventures/salvation/views"
+	"github.com/opendr-io/protostar-data/auth"
+	"github.com/opendr-io/protostar-data/utils"
+	"github.com/opendr-io/protostar-data/views"
 	"github.com/neo4j/neo4j-go-driver/neo4j"
 	"github.com/schollz/progressbar/v3"
 	"github.com/tidwall/gjson"

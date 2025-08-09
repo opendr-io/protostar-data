@@ -1,4 +1,4 @@
-module github.com/cyberdyne-ventures/salvation
+module github.com/opendr-io/protostar-data
 
 go 1.21.5
 
