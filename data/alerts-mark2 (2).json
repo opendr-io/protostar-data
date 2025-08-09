@@ -1,31 +1,5 @@
 [
   {
-    "source": "",
-    "guid": "",
-    "timestamp": "",
-    "detection_type": "",
-    "name": "",
-    "severity": "",
-    "category": "",
-    "mitre_tactic": "",
-    "entity": "",
-    "entity_type": "",
-    "host_ip": "",
-    "source_ip": "",
-    "dest_ip": "",
-    "dest_port": "",
-    "dst_geo": "",
-    "username": "",
-    "user_agent": "",
-    "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
-  },
-  {
     "source": "ELK",
     "guid": "3f2504e0-4f89-11d3-9a0c-0305e82c3301",
     "timestamp": "2022-04-27 7:45:03",
@@ -44,12 +18,7 @@
     "username": "LOCAL SERVICE",
     "user_agent": "",
     "executable": "",
-    "process": "rundll32.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "rundll32.exe"
   },
   {
     "source": "ELK",
@@ -70,12 +39,7 @@
     "username": "LOCAL SERVICE",
     "user_agent": "",
     "executable": "",
-    "process": "rundll32.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "rundll32.exe"
   },
   {
     "source": "ELK",
@@ -96,38 +60,7 @@
     "username": "LOCAL SERVICE",
     "user_agent": "",
     "executable": "",
-    "process": "rundll32.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
-  },
-  {
-    "source": "",
-    "guid": "",
-    "timestamp": "",
-    "detection_type": "",
-    "name": "",
-    "severity": "",
-    "category": "",
-    "mitre_tactic": "",
-    "entity": "",
-    "entity_type": "",
-    "host_ip": "",
-    "source_ip": "",
-    "dest_ip": "",
-    "dest_port": "",
-    "dst_geo": "",
-    "username": "",
-    "user_agent": "",
-    "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "rundll32.exe"
   },
   {
     "source": "ELK",
@@ -148,12 +81,7 @@
     "username": "leroy",
     "user_agent": "",
     "executable": "",
-    "process": "rundll32.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "rundll32.exe"
   },
   {
     "source": "ELK",
@@ -174,12 +102,7 @@
     "username": "leroy",
     "user_agent": "",
     "executable": "",
-    "process": "rundll32.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "rundll32.exe"
   },
   {
     "source": "ELK",
@@ -200,12 +123,7 @@
     "username": "leroy",
     "user_agent": "",
     "executable": "",
-    "process": "rundll32.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "rundll32.exe"
   },
   {
     "source": "ELK",
@@ -226,12 +144,7 @@
     "username": "leroy",
     "user_agent": "",
     "executable": "",
-    "process": "rundll32.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "rundll32.exe"
   },
   {
     "source": "ELK",
@@ -252,38 +165,7 @@
     "username": "leroy",
     "user_agent": "",
     "executable": "",
-    "process": "rundll32.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
-  },
-  {
-    "source": "",
-    "guid": "",
-    "timestamp": "",
-    "detection_type": "",
-    "name": "",
-    "severity": "",
-    "category": "",
-    "mitre_tactic": "",
-    "entity": "",
-    "entity_type": "",
-    "host_ip": "",
-    "source_ip": "",
-    "dest_ip": "",
-    "dest_port": "",
-    "dst_geo": "",
-    "username": "",
-    "user_agent": "",
-    "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "rundll32.exe"
   },
   {
     "source": "ELK",
@@ -304,12 +186,7 @@
     "username": "LOCAL SERVICE",
     "user_agent": "",
     "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": ""
   },
   {
     "source": "ELK",
@@ -330,38 +207,7 @@
     "username": "LOCAL SERVICE",
     "user_agent": "",
     "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
-  },
-  {
-    "source": "",
-    "guid": "",
-    "timestamp": "",
-    "detection_type": "",
-    "name": "",
-    "severity": "",
-    "category": "",
-    "mitre_tactic": "",
-    "entity": "",
-    "entity_type": "",
-    "host_ip": "",
-    "source_ip": "",
-    "dest_ip": "",
-    "dest_port": "",
-    "dst_geo": "",
-    "username": "",
-    "user_agent": "",
-    "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": ""
   },
   {
     "source": "ELK",
@@ -382,12 +228,7 @@
     "username": "",
     "user_agent": "",
     "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": ""
   },
   {
     "source": "ELK",
@@ -408,12 +249,7 @@
     "username": "",
     "user_agent": "",
     "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": ""
   },
   {
     "source": "ELK",
@@ -434,12 +270,7 @@
     "username": "",
     "user_agent": "",
     "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": ""
   },
   {
     "source": "ELK",
@@ -460,12 +291,7 @@
     "username": "",
     "user_agent": "",
     "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": ""
   },
   {
     "source": "ELK",
@@ -486,38 +312,7 @@
     "username": "",
     "user_agent": "",
     "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
-  },
-  {
-    "source": "",
-    "guid": "",
-    "timestamp": "",
-    "detection_type": "",
-    "name": "",
-    "severity": "",
-    "category": "",
-    "mitre_tactic": "",
-    "entity": "",
-    "entity_type": "",
-    "host_ip": "",
-    "source_ip": "",
-    "dest_ip": "",
-    "dest_port": "",
-    "dst_geo": "",
-    "username": "",
-    "user_agent": "",
-    "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": ""
   },
   {
     "source": "ELK",
@@ -538,12 +333,7 @@
     "username": "waffer",
     "user_agent": "",
     "executable": "",
-    "process": "curl",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "curl"
   },
   {
     "source": "ELK",
@@ -564,38 +354,7 @@
     "username": "waffer",
     "user_agent": "",
     "executable": "",
-    "process": "curl",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
-  },
-  {
-    "source": "",
-    "guid": "",
-    "timestamp": "",
-    "detection_type": "",
-    "name": "",
-    "severity": "",
-    "category": "",
-    "mitre_tactic": "",
-    "entity": "",
-    "entity_type": "",
-    "host_ip": "",
-    "source_ip": "",
-    "dest_ip": "",
-    "dest_port": "",
-    "dst_geo": "",
-    "username": "",
-    "user_agent": "",
-    "executable": "",
-    "process": "",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "curl"
   },
   {
     "source": "ELK",
@@ -616,12 +375,7 @@
     "username": "kateryna",
     "user_agent": "",
     "executable": "",
-    "process": "spppsvc.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "spppsvc.exe"
   },
   {
     "source": "ELK",
@@ -642,12 +396,7 @@
     "username": "kateryna",
     "user_agent": "",
     "executable": "",
-    "process": "spppsvc.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "spppsvc.exe"
   },
   {
     "source": "ELK",
@@ -668,12 +417,7 @@
     "username": "kateryna",
     "user_agent": "",
     "executable": "",
-    "process": "spppsvc.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "spppsvc.exe"
   },
   {
     "source": "ELK",
@@ -694,12 +438,7 @@
     "username": "kateryna",
     "user_agent": "",
     "executable": "",
-    "process": "spppsvc.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "spppsvc.exe"
   },
   {
     "source": "ELK",
@@ -720,11 +459,6 @@
     "username": "kateryna",
     "user_agent": "",
     "executable": "",
-    "process": "spppsvc.exe",
-    "message": "",
-    "proctitle": "",
-    "source_as": "",
-    "source_geo": "",
-    "http.request.method": ""
+    "process": "spppsvc.exe"
   }
 ]
