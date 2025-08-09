@@ -91,8 +91,10 @@ func main() {
 		panic(err)
 	}
 	for _, file := range files {
-		path := filepath.Join("data", file.Name())
-		insert(session, path)
+		if filepath.Ext(file.Name()) == ".json" {
+			path := filepath.Join("data", file.Name())
+			insert(session, path)
+		}
 	}
 
 	fmt.Println("Data imported successfully.")
