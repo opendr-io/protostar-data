@@ -5,7 +5,7 @@ import (
 
 	"github.com/neo4j/neo4j-go-driver/neo4j"
 
-	"github.com/cyberdyne-ventures/salvation/utils"
+	"github.com/opendr-io/protostar-data/utils"
 )
 
 func View1(session neo4j.Session, params map[string]interface{}) {

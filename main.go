@@ -8,9 +8,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/cyberdyne-ventures/salvation/auth"
-	"github.com/cyberdyne-ventures/salvation/utils"
-	"github.com/cyberdyne-ventures/salvation/views"
+	"github.com/opendr-io/protostar-data/auth"
+	"github.com/opendr-io/protostar-data/utils"
+	"github.com/opendr-io/protostar-data/views"
 	"github.com/neo4j/neo4j-go-driver/neo4j"
 	"github.com/schollz/progressbar/v3"
 	"github.com/tidwall/gjson"
@@ -91,8 +91,10 @@ func main() {
 		panic(err)
 	}
 	for _, file := range files {
-		path := filepath.Join("data", file.Name())
-		insert(session, path)
+		if filepath.Ext(file.Name()) == ".json" {
+			path := filepath.Join("data", file.Name())
+			insert(session, path)
+		}
 	}
 
 	fmt.Println("Data imported successfully.")

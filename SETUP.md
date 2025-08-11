@@ -1,4 +1,4 @@
-# Skynet Installation
+# protostar Installation
 
 1. [Prerequisite Installations (Go, Node.js, Neo4j)](#prerequisite-installations)
 2. [Set Up the Database and Upload Data](#upload-data-to-the-database)
@@ -8,7 +8,7 @@
 
 ## Prerequisite Installations
 
-Ensure you have both the `skynet-data` and `skynet-web` repositories downloaded.
+Ensure you have both the `protostar-data` and `protostar-web` repositories downloaded.
 
 ### Install Go
 #### Linux
@@ -98,7 +98,7 @@ Ensure you have both the `skynet-data` and `skynet-web` repositories downloaded.
   sudo systemctl start neo4j
   ```
 
-- Navigate to the `skynet-data` directory.
+- Navigate to the `protostar-data` directory.
 
 - Edit the following line in `main.go` file to configure the database connection:
   ```bash
@@ -124,7 +124,7 @@ Ensure you have both the `skynet-data` and `skynet-web` repositories downloaded.
 
 ### Linux and macOS
 
-- Navigate to the `skynet-web` directory (in terminal for macOS)
+- Navigate to the `protostar-web` directory (in terminal for macOS)
 
 - Add a new .env file
 
@@ -146,7 +146,7 @@ Ensure you have both the `skynet-data` and `skynet-web` repositories downloaded.
 
 ### Linux and macOS
 
-- Stay in, or navigate to, the `skynet-web` directory (in terminal for macOS).
+- Stay in, or navigate to, the `protostar-web` directory (in terminal for macOS).
 
 - Run the following commands:
 
