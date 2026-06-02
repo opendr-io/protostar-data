@@ -4,7 +4,7 @@
 
 For pre-processing alerts and detection artifacts, and their entities, for ingestion into the PROTOSTAR knowledge graph. Prerequisites: an instance of neo4j (https://neo4j.com/product/neo4j-graph-database/) You can use the Python module in the recognizer folder to process your raw alerts or you can ingest the sample alerts in the data folder which are pre-processed. 
 
-This doc covers setup of the entire project: (https://github.com/cyberdyne-ventures/skynet-data/blob/main/SETUP.md)
+This doc covers setup of the entire project: (https://github.com/opendr-io/protostar-web/blob/main/BaseSetup.md)
 
 Once installed, this is a sort of select all in the neo4j data layer:
 
@@ -15,7 +15,7 @@ return n
 ```
 ### Visualization and Web Front End:
 
-After the data layer is running, download and run the web server which provides a user interface: https://github.com/cyberdyne-ventures/skynet-web
+After the data layer is running, download and run the web server which provides a user interface: https://github.com/opendr-io/protostar-web
 
 
 
