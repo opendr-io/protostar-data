@@ -18,7 +18,7 @@ func GetSession(url, username, password string, encryption bool) (neo4j.Driver, 
 
 	session, err := driver.NewSession(neo4j.SessionConfig{})
 	if err != nil {
-		log.Fatal("bye")
+		log.Fatalf("Unable to open a Neo4j session on %s: %v", url, err)
 	}
 	// defer session.Close()
 	return driver, session

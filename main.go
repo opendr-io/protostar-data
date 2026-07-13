@@ -95,8 +95,8 @@ func main() {
 
 	driver, session := auth.GetSession(*uri, *username, *password, *encrypted)
 
-	fmt.Println("Driver = ", driver)
-	fmt.Println("Session = ", session)
+	fmt.Printf("Connected to %s as %s
+", *uri, *username)
 	defer driver.Close()
 	defer session.Close()
 
