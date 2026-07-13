@@ -100,18 +100,22 @@ Ensure you have both the `protostar-data` and `protostar-web` repositories downl
 
 - Navigate to the `protostar-data` directory.
 
-- Edit the following line in `main.go` file to configure the database connection:
-  ```bash
-  driver, session := auth.GetSession("bolt://localhost:7687", "neo4j", "password", false)
-  ```
-  Replace the placeholder "password" with your password
-
-- Run the following commands:
+- Run the following commands, passing your database password:
 
   ```bash
   go mod tidy
-  go run main.go
+  go run main.go -password $PASSWORD
   ```
+
+  The connection is configurable via flags or environment variables (flags win). Defaults target a local install:
+
+  | Flag         | Environment variable | Default                 |
+  |--------------|----------------------|-------------------------|
+  | `-uri`       | `NEO4J_URI`          | `bolt://localhost:7687` |
+  | `-username`  | `NEO4J_USERNAME`     | `neo4j`                 |
+  | `-password`  | `NEO4J_PASSWORD`     | `password`              |
+  | `-encrypted` | `NEO4J_ENCRYPTED`    | `false`                 |
+  | `-data`      | —                    | `data`                  |
 
 ### macOS
 

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -74,10 +75,25 @@ func insert(session neo4j.Session, filename string) {
 	fmt.Println()
 }
 
+// envOr returns the value of the environment variable key, or def if it is unset or empty.
+func envOr(key, def string) string {
+	if value := os.Getenv(key); value != "" {
+		return value
+	}
+	return def
+}
+
 func main() {
-	// local data
-	// This is default password. DO NOT USE IN PRODUCTION
-	driver, session := auth.GetSession("bolt://localhost:7687", "neo4j", "password", false)
+	// Connection options: flags override environment variables, which override the local defaults.
+	// The password default is Neo4j's out-of-the-box value. DO NOT USE IN PRODUCTION
+	uri := flag.String("uri", envOr("NEO4J_URI", "bolt://localhost:7687"), "Neo4j connection URI")
+	username := flag.String("username", envOr("NEO4J_USERNAME", "neo4j"), "Neo4j username")
+	password := flag.String("password", envOr("NEO4J_PASSWORD", "password"), "Neo4j password")
+	encrypted := flag.Bool("encrypted", os.Getenv("NEO4J_ENCRYPTED") == "true", "use an encrypted (TLS) connection")
+	dataDir := flag.String("data", "data", "directory containing the JSON files to import")
+	flag.Parse()
+
+	driver, session := auth.GetSession(*uri, *username, *password, *encrypted)
 
 	fmt.Println("Driver = ", driver)
 	fmt.Println("Session = ", session)
@@ -86,13 +102,13 @@ func main() {
 
 	// Delete everything to reset the graph before insertion
 	utils.DeleteAll(session)
-	files, err := os.ReadDir("data")
+	files, err := os.ReadDir(*dataDir)
 	if err != nil {
 		panic(err)
 	}
 	for _, file := range files {
 		if filepath.Ext(file.Name()) == ".json" {
-			path := filepath.Join("data", file.Name())
+			path := filepath.Join(*dataDir, file.Name())
 			insert(session, path)
 		}
 	}
