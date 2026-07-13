@@ -79,7 +79,7 @@ func main() {
 	ctx := context.Background()
 	// local data
 	// This is default password. DO NOT USE IN PRODUCTION
-	driver, session := auth.GetSession("bolt://localhost:7687", "neo4j", "password", false)
+	driver, session := auth.GetSession("bolt://localhost:7687", "neo4j", "protostar", false)
 
 	fmt.Println("Driver = ", driver)
 	fmt.Println("Session = ", session)
