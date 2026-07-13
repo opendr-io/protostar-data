@@ -1,25 +1,26 @@
 package auth
 
 import (
+	"context"
 	"log"
 
-	"github.com/neo4j/neo4j-go-driver/neo4j"
+	"github.com/neo4j/neo4j-go-driver/v5/neo4j"
 )
 
-func GetSession(url, username, password string, encryption bool) (neo4j.Driver, neo4j.Session) {
-	driver, err := neo4j.NewDriver(url, neo4j.BasicAuth(username, password, ""), func(c *neo4j.Config) {
-		c.Encrypted = encryption
-		// c.TrustStrategy = neo4j.TrustAny(true)
-	})
+func GetSession(url, username, password string, encryption bool) (neo4j.DriverWithContext, neo4j.SessionWithContext) {
+	// In driver v5, encryption is selected by the URI scheme instead of a config flag
+	if encryption {
+		url = "bolt+s" + url[len("bolt"):]
+	}
+	driver, err := neo4j.NewDriverWithContext(url, neo4j.BasicAuth(username, password, ""))
 	if err != nil {
 		panic(err)
 	}
-	// defer driver.Close()
 
-	session, err := driver.NewSession(neo4j.SessionConfig{})
-	if err != nil {
+	ctx := context.Background()
+	if err := driver.VerifyConnectivity(ctx); err != nil {
 		log.Fatal("bye")
 	}
-	// defer session.Close()
+	session := driver.NewSession(ctx, neo4j.SessionConfig{})
 	return driver, session
 }

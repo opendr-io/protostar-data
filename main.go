@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"os"
@@ -8,15 +9,15 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/neo4j/neo4j-go-driver/v5/neo4j"
 	"github.com/opendr-io/protostar-data/auth"
 	"github.com/opendr-io/protostar-data/utils"
 	"github.com/opendr-io/protostar-data/views"
-	"github.com/neo4j/neo4j-go-driver/neo4j"
 	"github.com/schollz/progressbar/v3"
 	"github.com/tidwall/gjson"
 )
 
-func insert(session neo4j.Session, filename string) {
+func insert(ctx context.Context, session neo4j.SessionWithContext, filename string) {
 
 	// modifiedJSON := read.ReadFile(filename)
 	fmt.Printf("Reading data from %s\n", filename)
@@ -66,8 +67,8 @@ func insert(session neo4j.Session, filename string) {
 			"message":        value.Get("message").String(),
 			"proctitle":      value.Get("proctitle").String(),
 		}
-		views.View1(session, params)
-		views.View2(session, params)
+		views.View1(ctx, session, params)
+		views.View2(ctx, session, params)
 		bar.Add(1)
 		return true
 	})
@@ -75,17 +76,18 @@ func insert(session neo4j.Session, filename string) {
 }
 
 func main() {
+	ctx := context.Background()
 	// local data
 	// This is default password. DO NOT USE IN PRODUCTION
 	driver, session := auth.GetSession("bolt://localhost:7687", "neo4j", "password", false)
 
 	fmt.Println("Driver = ", driver)
 	fmt.Println("Session = ", session)
-	defer driver.Close()
-	defer session.Close()
+	defer driver.Close(ctx)
+	defer session.Close(ctx)
 
 	// Delete everything to reset the graph before insertion
-	utils.DeleteAll(session)
+	utils.DeleteAll(ctx, session)
 	files, err := os.ReadDir("data")
 	if err != nil {
 		panic(err)
@@ -93,7 +95,7 @@ func main() {
 	for _, file := range files {
 		if filepath.Ext(file.Name()) == ".json" {
 			path := filepath.Join("data", file.Name())
-			insert(session, path)
+			insert(ctx, session, path)
 		}
 	}
 
