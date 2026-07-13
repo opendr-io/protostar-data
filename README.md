@@ -13,6 +13,47 @@ match(n:ENTITY)
 where n.view = 2
 return n
 ```
+### Running the Tests
+
+There are two kinds of tests: fast unit tests that anyone can run with no setup, and one integration test that needs a Neo4j instance.
+
+```
+go test ./...
+```
+
+That command runs everything; the integration test skips itself unless you opt in (see below), so this is always safe.
+
+#### Unit tests (main_test.go)
+
+- **TestEnvOr** checks the configuration fallback logic: an environment variable is used when set, otherwise the built-in default applies.
+- **TestAlertKeyUniqueness** validates the sample data in the data folder against the invariant the importer depends on: a guid may appear on more than one alert (several detections can fire on the same source document), but the combination of guid and detection name must be unique. The importer deduplicates ALERT nodes on that pair, so if two *different* events ever shared a guid and name, the second would be silently dropped during import. This test makes that a loud failure instead: it reads every event exactly the way the importer does (including name normalization) and reports the offending file and position. Byte-identical repeated events are allowed, since merging them loses nothing. If you add new data files, this test is the first thing to run.
+
+#### Integration test (integration_test.go)
+
+**TestImportIsIdempotent** exercises the importer end-to-end against a real Neo4j database. It imports every file in the data folder twice, and verifies the second pass changes nothing: the alert count, total node count, and total relationship count must be identical after both passes. This proves re-running the importer (which no longer wipes the graph by default) cannot duplicate data.
+
+Safety properties:
+
+- It is **skipped unless `NEO4J_TEST_URI` is set** — an explicit opt-in, so `go test ./...` can never touch a database by accident.
+- It **refuses to run if the target database is not empty**, so it can never destroy existing data. Empty the database first (for example `MATCH (n) DETACH DELETE n` in the Neo4j browser, or run the importer with `-reset` and an empty data directory).
+- It **deletes everything it imported before finishing**, leaving the database empty again. It only ever deletes data it created.
+
+To run it, add `NEO4J_TEST_URI` to your `.env` file (see `.env.example`), pointing at an empty database:
+
+```
+NEO4J_TEST_URI=bolt://localhost:7687
+```
+
+then:
+
+```
+go test -run Idempotent -v
+```
+
+Connection credentials come from the same git-ignored `.env` file (or environment variables) the importer uses, so nothing needs to be passed on the command line.
+
+Note on caching: when invoked with a package argument (`go test ./...`), Go may serve cached results and will not notice changes to your `.env` file. Add `-count=1` to force a real run; plain `go test` in the repository root never caches.
+
 ### Visualization and Web Front End:
 
 After the data layer is running, download and run the web server which provides a user interface: https://github.com/opendr-io/protostar-web

@@ -36,8 +36,11 @@ func View2(session neo4j.Session, params map[string]interface{}) {
 	// Create the relationship between SEVERITY_CLUSTER and NAME_CLUSTER
 	MERGE (scs)-[:NAME_CLUSTER]->(ncs)
 
-	// Create the ALERT node with the given parameters
-	CREATE (aa:ALERT {guid: $guid, timestamp: $timestamp, detection_type: $detection_type, name: $name, category: $category, mitre_tactic: $mitre_tactic, entity: $entity, entity_type: $entity_type, host_ip: $host_ip, source_ip: $source_ip, dest_ip: $dest_ip, dest_port: $dest_port, dst_geo: $dst_geo, username: $username, syscall_name: $syscall_name, executable: $executable, process: $process, message: $message, proctitle: $proctitle, severity: $severity, view: 2})
+	// Merge the ALERT node on (guid, name), the unique key for an event: guids may repeat
+	// across detections, but a guid fires at most once per detection name. This keeps
+	// re-imports of the same data from duplicating alerts.
+	MERGE (aa:ALERT {guid: $guid, name: $name, view: 2})
+	ON CREATE SET aa.timestamp = $timestamp, aa.detection_type = $detection_type, aa.category = $category, aa.mitre_tactic = $mitre_tactic, aa.entity = $entity, aa.entity_type = $entity_type, aa.host_ip = $host_ip, aa.source_ip = $source_ip, aa.dest_ip = $dest_ip, aa.dest_port = $dest_port, aa.dst_geo = $dst_geo, aa.username = $username, aa.syscall_name = $syscall_name, aa.executable = $executable, aa.process = $process, aa.message = $message, aa.proctitle = $proctitle, aa.severity = $severity
 
 	// Create the relationship between NAME_CLUSTER and ALERT
 	MERGE (ncs)-[:INCLUDES]->(aa)

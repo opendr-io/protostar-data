@@ -1,4 +1,4 @@
-# protostar Installation
+# Protostar Installation
 
 1. [Prerequisite Installations (Go, Node.js, Neo4j)](#prerequisite-installations)
 2. [Set Up the Database and Upload Data](#upload-data-to-the-database)
@@ -11,6 +11,7 @@
 Ensure you have both the `protostar-data` and `protostar-web` repositories downloaded.
 
 ### Install Go
+
 #### Linux
 
 - Install Go
@@ -31,33 +32,6 @@ Ensure you have both the `protostar-data` and `protostar-web` repositories downl
 - Download the macOS `.pkg` installer for the latest version.
 - Open the `.pkg` file and follow the installation instructions.
 
-### Install Node.js
-
-#### macOS
-
-- Visit the [Node.js official website](https://nodejs.org/).
-- Download the macOS `.pkg` installer for the latest version.
-- Open the file and follow the installation instructions.
-
-- Verify Node.js Installation by running the following commands in terminal:
- 
-  ```bash
-  node -v
-  npm -v
-  ```
-
-#### Linux
-
-- Install Node.js and npm
-  ```bash
-  sudo apt install nodejs npm
-  ```
-
-- Verify Installation
-  ```bash
-  node -v
-  npm -v
-  ```
 
 ### Install Neo4j
 
@@ -107,7 +81,7 @@ Ensure you have both the `protostar-data` and `protostar-web` repositories downl
   go run main.go -password $PASSWORD
   ```
 
-  The connection is configurable via flags or environment variables (flags win). Defaults target a local install:
+  The connection is configurable via flags, environment variables, or a `.env` file in the repository root (precedence: flags, then environment, then `.env`). Copy `.env.example` to `.env` and fill in your values; `.env` is git-ignored so credentials stay out of the repository. Defaults target a local install:
 
   | Flag         | Environment variable | Default                 |
   |--------------|----------------------|-------------------------|
@@ -116,6 +90,9 @@ Ensure you have both the `protostar-data` and `protostar-web` repositories downl
   | `-password`  | `NEO4J_PASSWORD`     | `password`              |
   | `-encrypted` | `NEO4J_ENCRYPTED`    | `false`                 |
   | `-data`      | —                    | `data`                  |
+  | `-reset`     | —                    | `false`                 |
+
+  Pass `-reset` to delete the existing graph before importing; by default new data is imported on top of it.
 
 ### macOS
 
@@ -146,17 +123,3 @@ Ensure you have both the `protostar-data` and `protostar-web` repositories downl
 
 - Press Ctrl + O to save the file, then press Enter to confirm. Press Ctrl + X to exit nano.
 
-## Start Web Application
-
-### Linux and macOS
-
-- Stay in, or navigate to, the `protostar-web` directory (in terminal for macOS).
-
-- Run the following commands:
-
-  ```bash
-  npm install
-  npm start
-  ```
-
-If the webpage doesn't open in your browser automatically, navigate to [http://localhost:3000](http://localhost:3000).

@@ -9,10 +9,11 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/joho/godotenv"
+	"github.com/neo4j/neo4j-go-driver/neo4j"
 	"github.com/opendr-io/protostar-data/auth"
 	"github.com/opendr-io/protostar-data/utils"
 	"github.com/opendr-io/protostar-data/views"
-	"github.com/neo4j/neo4j-go-driver/neo4j"
 	"github.com/schollz/progressbar/v3"
 	"github.com/tidwall/gjson"
 )
@@ -84,6 +85,12 @@ func envOr(key, def string) string {
 }
 
 func main() {
+	// Load optional .env file into the environment; real environment variables win over
+	// .env values, so precedence is: flags > environment > .env > local defaults.
+	if err := godotenv.Load(); err != nil && !os.IsNotExist(err) {
+		log.Fatalf("Unable to load .env file: %v", err)
+	}
+
 	// Connection options: flags override environment variables, which override the local defaults.
 	// The password default is Neo4j's out-of-the-box value. DO NOT USE IN PRODUCTION
 	uri := flag.String("uri", envOr("NEO4J_URI", "bolt://localhost:7687"), "Neo4j connection URI")
@@ -91,6 +98,7 @@ func main() {
 	password := flag.String("password", envOr("NEO4J_PASSWORD", "password"), "Neo4j password")
 	encrypted := flag.Bool("encrypted", os.Getenv("NEO4J_ENCRYPTED") == "true", "use an encrypted (TLS) connection")
 	dataDir := flag.String("data", "data", "directory containing the JSON files to import")
+	reset := flag.Bool("reset", false, "delete the entire existing graph before importing")
 	flag.Parse()
 
 	driver, session := auth.GetSession(*uri, *username, *password, *encrypted)
@@ -100,8 +108,10 @@ func main() {
 	defer driver.Close()
 	defer session.Close()
 
-	// Delete everything to reset the graph before insertion
-	utils.DeleteAll(session)
+	// Delete everything to reset the graph before insertion (only when -reset is passed)
+	if *reset {
+		utils.DeleteAll(session)
+	}
 	files, err := os.ReadDir(*dataDir)
 	if err != nil {
 		panic(err)
