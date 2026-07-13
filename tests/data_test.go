@@ -1,4 +1,4 @@
-package main
+package tests
 
 import (
 	"encoding/json"
@@ -13,17 +13,8 @@ import (
 	"github.com/tidwall/gjson"
 )
 
-func TestEnvOr(t *testing.T) {
-	explain(t, "envOr prefers a set environment variable and falls back to the default otherwise")
-	t.Setenv("PROTOSTAR_TEST_KEY", "from-env")
-	if got := envOr("PROTOSTAR_TEST_KEY", "fallback"); got != "from-env" {
-		t.Errorf("envOr should prefer a set environment variable: got %q, want %q", got, "from-env")
-	}
-	t.Setenv("PROTOSTAR_TEST_KEY", "")
-	if got := envOr("PROTOSTAR_TEST_KEY", "fallback"); got != "fallback" {
-		t.Errorf("envOr should fall back when the variable is empty: got %q, want %q", got, "fallback")
-	}
-}
+// dataDir locates the sample data relative to this package.
+const dataDir = "../data"
 
 // TestAlertKeyUniqueness guards the ALERT merge key used in views/view2.go.
 // Alerts are deduplicated on (guid, name): guids may repeat across detections,
@@ -36,7 +27,7 @@ func TestEnvOr(t *testing.T) {
 func TestAlertKeyUniqueness(t *testing.T) {
 	explain(t, "no two different events in data/ may share a (guid, name) pair, the importer's dedup key")
 	reg := regexp.MustCompile(`[^a-zA-Z0-9]+`)
-	files, err := os.ReadDir("data")
+	files, err := os.ReadDir(dataDir)
 	if err != nil {
 		t.Fatalf("reading data directory: %v", err)
 	}
@@ -54,7 +45,7 @@ func TestAlertKeyUniqueness(t *testing.T) {
 		if filepath.Ext(file.Name()) != ".json" {
 			continue
 		}
-		path := filepath.Join("data", file.Name())
+		path := filepath.Join(dataDir, file.Name())
 		raw, err := os.ReadFile(path)
 		if err != nil {
 			t.Fatalf("reading %s: %v", path, err)

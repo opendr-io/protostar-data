@@ -76,14 +76,6 @@ func insert(session neo4j.Session, filename string) {
 	fmt.Println()
 }
 
-// envOr returns the value of the environment variable key, or def if it is unset or empty.
-func envOr(key, def string) string {
-	if value := os.Getenv(key); value != "" {
-		return value
-	}
-	return def
-}
-
 func main() {
 	// Load optional .env file into the environment; real environment variables win over
 	// .env values, so precedence is: flags > environment > .env > local defaults.
@@ -93,9 +85,9 @@ func main() {
 
 	// Connection options: flags override environment variables, which override the local defaults.
 	// The password default is Neo4j's out-of-the-box value. DO NOT USE IN PRODUCTION
-	uri := flag.String("uri", envOr("NEO4J_URI", "bolt://localhost:7687"), "Neo4j connection URI")
-	username := flag.String("username", envOr("NEO4J_USERNAME", "neo4j"), "Neo4j username")
-	password := flag.String("password", envOr("NEO4J_PASSWORD", "password"), "Neo4j password")
+	uri := flag.String("uri", utils.EnvOr("NEO4J_URI", "bolt://localhost:7687"), "Neo4j connection URI")
+	username := flag.String("username", utils.EnvOr("NEO4J_USERNAME", "neo4j"), "Neo4j username")
+	password := flag.String("password", utils.EnvOr("NEO4J_PASSWORD", "password"), "Neo4j password")
 	encrypted := flag.Bool("encrypted", os.Getenv("NEO4J_ENCRYPTED") == "true", "use an encrypted (TLS) connection")
 	dataDir := flag.String("data", "data", "directory containing the JSON files to import")
 	reset := flag.Bool("reset", false, "delete the entire existing graph before importing")

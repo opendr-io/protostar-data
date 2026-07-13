@@ -15,22 +15,22 @@ return n
 ```
 ### Running the Tests
 
-There are two kinds of tests: fast unit tests that anyone can run with no setup, and one integration test that needs a Neo4j instance.
+All tests live in the tests folder. There are two kinds: fast unit tests that anyone can run with no setup, and one integration test that needs a Neo4j instance.
 
 ```
 go test ./...
 ```
 
-That command runs everything; the integration test skips itself unless you opt in (see below), so this is always safe.
+Run from the repository root, that command runs everything (add `-count=1` to skip Go's test cache; `cd tests` and plain `go test` also works and never caches); the integration test skips itself unless you opt in (see below), so this is always safe.
 
-#### Unit tests (main_test.go)
+#### Unit tests (tests/config_test.go, tests/data_test.go)
 
 - **TestEnvOr** checks the configuration fallback logic: an environment variable is used when set, otherwise the built-in default applies.
 - **TestAlertKeyUniqueness** validates the sample data in the data folder against the invariant the importer depends on: a guid may appear on more than one alert (several detections can fire on the same source document), but the combination of guid and detection name must be unique. The importer deduplicates ALERT nodes on that pair, so if two *different* events ever shared a guid and name, the second would be silently dropped during import. This test makes that a loud failure instead: it reads every event exactly the way the importer does (including name normalization) and reports the offending file and position. Byte-identical repeated events are allowed, since merging them loses nothing. If you add new data files, this test is the first thing to run.
 
-#### Integration test (integration_test.go)
+#### Integration test (tests/integration_test.go)
 
-**TestImportIsIdempotent** exercises the importer end-to-end against a real Neo4j database. It imports every file in the data folder twice, and verifies the second pass changes nothing: the alert count, total node count, and total relationship count must be identical after both passes. This proves re-running the importer (which no longer wipes the graph by default) cannot duplicate data.
+**TestImportIsIdempotent** exercises the importer end-to-end: it runs the actual CLI (`go run .`) twice against a real Neo4j database, importing every file in the data folder each time, and verifies the second pass changes nothing: the alert count, total node count, and total relationship count must be identical after both passes. This proves re-running the importer (which no longer wipes the graph by default) cannot duplicate data.
 
 Safety properties:
 
@@ -47,12 +47,12 @@ NEO4J_TEST_URI=bolt://localhost:7687
 then:
 
 ```
-go test -run Idempotent -v
+go test ./tests -run Idempotent -v -count=1
 ```
 
 Connection credentials come from the same git-ignored `.env` file (or environment variables) the importer uses, so nothing needs to be passed on the command line.
 
-Note on caching: when invoked with a package argument (`go test ./...`), Go may serve cached results and will not notice changes to your `.env` file. Add `-count=1` to force a real run; plain `go test` in the repository root never caches.
+Every test prints what it is verifying and its status as it runs, and a summary table is printed at the end; `-v` adds detailed step-by-step narration. Note on caching: when invoked with a package argument (`go test ./...` or `go test ./tests`), Go may serve cached results and will not notice changes to your `.env` file or database. Add `-count=1` to force a real run; plain `go test` inside the tests folder never caches.
 
 ### Visualization and Web Front End:
 

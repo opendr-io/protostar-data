@@ -1,4 +1,4 @@
-package main
+package tests
 
 import (
 	"fmt"
@@ -39,10 +39,17 @@ func explain(t *testing.T, what string) {
 	})
 }
 
-// TestMain loads the optional .env file (same as the importer itself) before
-// running tests, and prints a summary of every test afterwards.
+// skipf prints the skip reason (always visible, unlike t.Skipf's message,
+// which needs -v) and then skips the test.
+func skipf(t *testing.T, format string, args ...interface{}) {
+	fmt.Printf("    skipped: "+format+"\n", args...)
+	t.Skipf(format, args...)
+}
+
+// TestMain loads the repository's optional .env file (same as the importer
+// itself) before running tests, and prints a summary of every test afterwards.
 func TestMain(m *testing.M) {
-	_ = godotenv.Load()
+	_ = godotenv.Load("../.env")
 	code := m.Run()
 	if len(outcomes) > 0 {
 		fmt.Println("=============================== TEST SUMMARY ===============================")
