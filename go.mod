@@ -3,7 +3,7 @@ module github.com/opendr-io/protostar-data
 go 1.21.5
 
 require (
-	github.com/neo4j/neo4j-go-driver v1.8.3
+	github.com/neo4j/neo4j-go-driver/v5 v5.28.4
 	github.com/schollz/progressbar/v3 v3.14.2
 	github.com/tidwall/gjson v1.17.1
 	github.com/tidwall/sjson v1.2.5
