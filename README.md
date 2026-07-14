@@ -4,7 +4,7 @@
 
 For pre-processing alerts and detection artifacts, and their entities, for ingestion into the PROTOSTAR knowledge graph. Prerequisites: an instance of neo4j (https://neo4j.com/product/neo4j-graph-database/) You can use the Python module in the recognizer folder to process your raw alerts or you can ingest the sample alerts in the data folder which are pre-processed. 
 
-Setup of the data layer is covered in [SETUP.md](SETUP.md).
+Setup of the data layer is covered in [SETUP.md](SETUP.md). The graph schema the importer creates — what the two "views" are, every node label and merge key, and notes for porting the importer — is documented in [docs/GRAPH_MODEL.md](docs/GRAPH_MODEL.md).
 
 Once installed, this is a sort of select all in the neo4j data layer:
 
@@ -53,6 +53,10 @@ go test ./tests -run Idempotent -v -count=1
 Connection credentials come from the same git-ignored `.env` file (or environment variables) the importer uses, so nothing needs to be passed on the command line.
 
 Every test prints what it is verifying and its status as it runs, and a summary table is printed at the end; `-v` adds detailed step-by-step narration. Note on caching: when invoked with a package argument (`go test ./...` or `go test ./tests`), Go may serve cached results and will not notice changes to your `.env` file or database. Add `-count=1` to force a real run; plain `go test` inside the tests folder never caches.
+
+### Maintenance Scripts
+
+The `scripts` folder contains Python scripts that derive additional graph views from imported data (network connections, per-entity timelines) and normalize alert timestamps into sortable properties. They use the same `.env` connection settings as the importer and are safe to re-run after every import. See [docs/FUTURE_WORK.md](docs/FUTURE_WORK.md) for what each one builds and why.
 
 ### Visualization and Web Front End:
 
