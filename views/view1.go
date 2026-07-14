@@ -1,14 +1,15 @@
 package views
 
 import (
+	"context"
 	"fmt"
 
-	"github.com/neo4j/neo4j-go-driver/neo4j"
+	"github.com/neo4j/neo4j-go-driver/v5/neo4j"
 
 	"github.com/opendr-io/protostar-data/utils"
 )
 
-func View1(session neo4j.Session, params map[string]interface{}) {
+func View1(ctx context.Context, session neo4j.SessionWithContext, params map[string]interface{}) {
 	// fmt.Println("Creating unique set of entities 1")
 	query := fmt.Sprintf(`
 	MERGE (e:ENTITY {ip: $host_ip, entity: $entity, entity_type: $entity_type, view: 1})
@@ -22,6 +23,6 @@ func View1(session neo4j.Session, params map[string]interface{}) {
 	ON CREATE SET nsummary.count = 1
 	ON MATCH SET nsummary.count = nsummary.count + 1
 	MERGE (summary)-[:%s{view: 1}]->(nsummary)`, params["detection_type"], params["detection_type"], params["name"], params["name"])
-	res, err := session.Run(query, params)
+	res, err := session.Run(ctx, query, params)
 	utils.HandleResult(res, err)
 }

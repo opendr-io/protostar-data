@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"context"
 	"os"
 	"os/exec"
 	"testing"
@@ -31,20 +32,21 @@ func TestImportIsIdempotent(t *testing.T) {
 	username := utils.EnvOr("NEO4J_USERNAME", "neo4j")
 	password := utils.EnvOr("NEO4J_PASSWORD", "password")
 
-	driver, session := auth.GetSession(uri, username, password, false)
-	defer driver.Close()
-	defer session.Close()
+	ctx := context.Background()
+	driver, session := auth.GetSession(ctx, uri, username, password)
+	defer driver.Close(ctx)
+	defer session.Close(ctx)
 	t.Logf("connected to %s", uri)
 
 	count := func(query string) int64 {
-		res, err := session.Run(query, nil)
+		res, err := session.Run(ctx, query, nil)
 		if err != nil {
 			t.Fatalf("count query %q failed: %v", query, err)
 		}
-		if !res.Next() {
+		if !res.Next(ctx) {
 			t.Fatalf("count query %q returned no rows", query)
 		}
-		return res.Record().GetByIndex(0).(int64)
+		return res.Record().Values[0].(int64)
 	}
 
 	// Refuse to run against a database that already contains data.
@@ -56,7 +58,7 @@ func TestImportIsIdempotent(t *testing.T) {
 	t.Log("database is empty, safe to proceed (the test cleans up after itself)")
 	defer func() {
 		t.Log("cleaning up: deleting everything the test imported, leaving the database empty")
-		utils.DeleteAll(session)
+		utils.DeleteAll(ctx, session)
 	}()
 
 	// runImporter executes the actual CLI from the repository root, pointed at

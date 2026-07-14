@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"log"
@@ -10,7 +11,7 @@ import (
 	"strings"
 
 	"github.com/joho/godotenv"
-	"github.com/neo4j/neo4j-go-driver/neo4j"
+	"github.com/neo4j/neo4j-go-driver/v5/neo4j"
 	"github.com/opendr-io/protostar-data/auth"
 	"github.com/opendr-io/protostar-data/utils"
 	"github.com/opendr-io/protostar-data/views"
@@ -18,7 +19,7 @@ import (
 	"github.com/tidwall/gjson"
 )
 
-func insert(session neo4j.Session, filename string) {
+func insert(ctx context.Context, session neo4j.SessionWithContext, filename string) {
 
 	// modifiedJSON := read.ReadFile(filename)
 	fmt.Printf("Reading data from %s\n", filename)
@@ -68,8 +69,8 @@ func insert(session neo4j.Session, filename string) {
 			"message":        value.Get("message").String(),
 			"proctitle":      value.Get("proctitle").String(),
 		}
-		views.View1(session, params)
-		views.View2(session, params)
+		views.View1(ctx, session, params)
+		views.View2(ctx, session, params)
 		bar.Add(1)
 		return true
 	})
@@ -85,23 +86,23 @@ func main() {
 
 	// Connection options: flags override environment variables, which override the local defaults.
 	// The password default is Neo4j's out-of-the-box value. DO NOT USE IN PRODUCTION
-	uri := flag.String("uri", utils.EnvOr("NEO4J_URI", "bolt://localhost:7687"), "Neo4j connection URI")
+	uri := flag.String("uri", utils.EnvOr("NEO4J_URI", "bolt://localhost:7687"), "Neo4j connection URI (use neo4j+s:// for Aura; TLS follows the URI scheme)")
 	username := flag.String("username", utils.EnvOr("NEO4J_USERNAME", "neo4j"), "Neo4j username")
 	password := flag.String("password", utils.EnvOr("NEO4J_PASSWORD", "password"), "Neo4j password")
-	encrypted := flag.Bool("encrypted", os.Getenv("NEO4J_ENCRYPTED") == "true", "use an encrypted (TLS) connection")
 	dataDir := flag.String("data", "data", "directory containing the JSON files to import")
 	reset := flag.Bool("reset", false, "delete the entire existing graph before importing")
 	flag.Parse()
 
-	driver, session := auth.GetSession(*uri, *username, *password, *encrypted)
+	ctx := context.Background()
+	driver, session := auth.GetSession(ctx, *uri, *username, *password)
 
 	fmt.Printf("Connected to %s as %s\n", *uri, *username)
-	defer driver.Close()
-	defer session.Close()
+	defer driver.Close(ctx)
+	defer session.Close(ctx)
 
 	// Delete everything to reset the graph before insertion (only when -reset is passed)
 	if *reset {
-		utils.DeleteAll(session)
+		utils.DeleteAll(ctx, session)
 	}
 	files, err := os.ReadDir(*dataDir)
 	if err != nil {
@@ -110,7 +111,7 @@ func main() {
 	for _, file := range files {
 		if filepath.Ext(file.Name()) == ".json" {
 			path := filepath.Join(*dataDir, file.Name())
-			insert(session, path)
+			insert(ctx, session, path)
 		}
 	}
 

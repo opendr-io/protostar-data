@@ -88,11 +88,12 @@ Ensure you have both the `protostar-data` and `protostar-web` repositories downl
   | `-uri`       | `NEO4J_URI`          | `bolt://localhost:7687` |
   | `-username`  | `NEO4J_USERNAME`     | `neo4j`                 |
   | `-password`  | `NEO4J_PASSWORD`     | `password`              |
-  | `-encrypted` | `NEO4J_ENCRYPTED`    | `false`                 |
   | `-data`      | —                    | `data`                  |
   | `-reset`     | —                    | `false`                 |
 
   Pass `-reset` to delete the existing graph before importing; by default new data is imported on top of it.
+
+  Encryption follows the URI scheme: `bolt://` and `neo4j://` are unencrypted, `bolt+s://` and `neo4j+s://` use TLS. For Neo4j Aura use the `neo4j+s://...` URI shown in the Aura console.
 
 ### macOS
 

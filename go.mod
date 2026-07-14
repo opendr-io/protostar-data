@@ -3,14 +3,14 @@ module github.com/opendr-io/protostar-data
 go 1.21.5
 
 require (
-	github.com/neo4j/neo4j-go-driver v1.8.3
+	github.com/joho/godotenv v1.5.1
+	github.com/neo4j/neo4j-go-driver/v5 v5.28.4
 	github.com/schollz/progressbar/v3 v3.14.2
 	github.com/tidwall/gjson v1.17.1
 	github.com/tidwall/sjson v1.2.5
 )
 
 require (
-	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
