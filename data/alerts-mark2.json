@@ -460,5 +460,26 @@
     "user_agent": "",
     "executable": "",
     "process": "spppsvc.exe"
+  },
+  {
+    "source": "ELK",
+    "guid": "3f2504e0-4f89-11d3-9a0c-0305e82c6606",
+    "timestamp": "2023-10-21 12:12:07",
+    "detection_type": "Endpoint Machine Learning",
+    "name": "Anomalous Process",
+    "severity": "Medium",
+    "category": "Windows",
+    "mitre_tactic": "",
+    "entity": "LP-42",
+    "entity_type": "endpoint",
+    "host_ip": "198.18.16.36",
+    "source_ip": "",
+    "dest_ip": "",
+    "dest_port": "",
+    "dst_geo": "",
+    "username": "leroy",
+    "user_agent": "",
+    "executable": "",
+    "process": "svhost.exe"
   }
 ]
