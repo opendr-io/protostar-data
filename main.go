@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -9,6 +10,7 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/joho/godotenv"
 	"github.com/neo4j/neo4j-go-driver/v5/neo4j"
 	"github.com/opendr-io/protostar-data/auth"
 	"github.com/opendr-io/protostar-data/utils"
@@ -76,25 +78,39 @@ func insert(ctx context.Context, session neo4j.SessionWithContext, filename stri
 }
 
 func main() {
-	ctx := context.Background()
-	// local data
-	// This is default password. DO NOT USE IN PRODUCTION
-	driver, session := auth.GetSession("bolt://localhost:7687", "neo4j", "protostar", false)
+	// Load optional .env file into the environment; real environment variables win over
+	// .env values, so precedence is: flags > environment > .env > local defaults.
+	if err := godotenv.Load(); err != nil && !os.IsNotExist(err) {
+		log.Fatalf("Unable to load .env file: %v", err)
+	}
 
-	fmt.Println("Driver = ", driver)
-	fmt.Println("Session = ", session)
+	// Connection options: flags override environment variables, which override the local defaults.
+	// The password default is Neo4j's out-of-the-box value. DO NOT USE IN PRODUCTION
+	uri := flag.String("uri", utils.EnvOr("NEO4J_URI", "bolt://localhost:7687"), "Neo4j connection URI (use neo4j+s:// for Aura; TLS follows the URI scheme)")
+	username := flag.String("username", utils.EnvOr("NEO4J_USERNAME", "neo4j"), "Neo4j username")
+	password := flag.String("password", utils.EnvOr("NEO4J_PASSWORD", "password"), "Neo4j password")
+	dataDir := flag.String("data", "data", "directory containing the JSON files to import")
+	reset := flag.Bool("reset", false, "delete the entire existing graph before importing")
+	flag.Parse()
+
+	ctx := context.Background()
+	driver, session := auth.GetSession(ctx, *uri, *username, *password)
+
+	fmt.Printf("Connected to %s as %s\n", *uri, *username)
 	defer driver.Close(ctx)
 	defer session.Close(ctx)
 
-	// Delete everything to reset the graph before insertion
-	utils.DeleteAll(ctx, session)
-	files, err := os.ReadDir("data")
+	// Delete everything to reset the graph before insertion (only when -reset is passed)
+	if *reset {
+		utils.DeleteAll(ctx, session)
+	}
+	files, err := os.ReadDir(*dataDir)
 	if err != nil {
 		panic(err)
 	}
 	for _, file := range files {
 		if filepath.Ext(file.Name()) == ".json" {
-			path := filepath.Join("data", file.Name())
+			path := filepath.Join(*dataDir, file.Name())
 			insert(ctx, session, path)
 		}
 	}

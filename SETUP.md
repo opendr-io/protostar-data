@@ -1,4 +1,4 @@
-# protostar Installation
+# Protostar Installation
 
 1. [Prerequisite Installations (Go, Node.js, Neo4j)](#prerequisite-installations)
 2. [Set Up the Database and Upload Data](#upload-data-to-the-database)
@@ -11,6 +11,7 @@
 Ensure you have both the `protostar-data` and `protostar-web` repositories downloaded.
 
 ### Install Go
+
 #### Linux
 
 - Install Go
@@ -31,33 +32,6 @@ Ensure you have both the `protostar-data` and `protostar-web` repositories downl
 - Download the macOS `.pkg` installer for the latest version.
 - Open the `.pkg` file and follow the installation instructions.
 
-### Install Node.js
-
-#### macOS
-
-- Visit the [Node.js official website](https://nodejs.org/).
-- Download the macOS `.pkg` installer for the latest version.
-- Open the file and follow the installation instructions.
-
-- Verify Node.js Installation by running the following commands in terminal:
- 
-  ```bash
-  node -v
-  npm -v
-  ```
-
-#### Linux
-
-- Install Node.js and npm
-  ```bash
-  sudo apt install nodejs npm
-  ```
-
-- Verify Installation
-  ```bash
-  node -v
-  npm -v
-  ```
 
 ### Install Neo4j
 
@@ -100,18 +74,26 @@ Ensure you have both the `protostar-data` and `protostar-web` repositories downl
 
 - Navigate to the `protostar-data` directory.
 
-- Edit the following line in `main.go` file to configure the database connection:
-  ```bash
-  driver, session := auth.GetSession("bolt://localhost:7687", "neo4j", "password", false)
-  ```
-  Replace the placeholder "password" with your password
-
-- Run the following commands:
+- Run the following commands, passing your database password:
 
   ```bash
   go mod tidy
-  go run main.go
+  go run main.go -password $PASSWORD
   ```
+
+  The connection is configurable via flags, environment variables, or a `.env` file in the repository root (precedence: flags, then environment, then `.env`). Copy `.env.example` to `.env` and fill in your values; `.env` is git-ignored so credentials stay out of the repository. Defaults target a local install:
+
+  | Flag         | Environment variable | Default                 |
+  |--------------|----------------------|-------------------------|
+  | `-uri`       | `NEO4J_URI`          | `bolt://localhost:7687` |
+  | `-username`  | `NEO4J_USERNAME`     | `neo4j`                 |
+  | `-password`  | `NEO4J_PASSWORD`     | `password`              |
+  | `-data`      | —                    | `data`                  |
+  | `-reset`     | —                    | `false`                 |
+
+  Pass `-reset` to delete the existing graph before importing; by default new data is imported on top of it.
+
+  Encryption follows the URI scheme: `bolt://` and `neo4j://` are unencrypted, `bolt+s://` and `neo4j+s://` use TLS. For Neo4j Aura use the `neo4j+s://...` URI shown in the Aura console.
 
 ### macOS
 
@@ -142,17 +124,3 @@ Ensure you have both the `protostar-data` and `protostar-web` repositories downl
 
 - Press Ctrl + O to save the file, then press Enter to confirm. Press Ctrl + X to exit nano.
 
-## Start Web Application
-
-### Linux and macOS
-
-- Stay in, or navigate to, the `protostar-web` directory (in terminal for macOS).
-
-- Run the following commands:
-
-  ```bash
-  npm install
-  npm start
-  ```
-
-If the webpage doesn't open in your browser automatically, navigate to [http://localhost:3000](http://localhost:3000).

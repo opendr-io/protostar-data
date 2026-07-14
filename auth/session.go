@@ -7,19 +7,17 @@ import (
 	"github.com/neo4j/neo4j-go-driver/v5/neo4j"
 )
 
-func GetSession(url, username, password string, encryption bool) (neo4j.DriverWithContext, neo4j.SessionWithContext) {
-	// In driver v5, encryption is selected by the URI scheme instead of a config flag
-	if encryption {
-		url = "bolt+s" + url[len("bolt"):]
-	}
+// GetSession connects to Neo4j and returns an open driver and session.
+// In driver v5 encryption is selected by the URI scheme (bolt+s://, or
+// neo4j+s:// for Aura), so there is no separate encryption switch.
+func GetSession(ctx context.Context, url, username, password string) (neo4j.DriverWithContext, neo4j.SessionWithContext) {
 	driver, err := neo4j.NewDriverWithContext(url, neo4j.BasicAuth(username, password, ""))
 	if err != nil {
-		panic(err)
+		log.Fatalf("Invalid Neo4j connection URI %s: %v", url, err)
 	}
 
-	ctx := context.Background()
 	if err := driver.VerifyConnectivity(ctx); err != nil {
-		log.Fatal("bye")
+		log.Fatalf("Unable to connect to Neo4j at %s: %v", url, err)
 	}
 	session := driver.NewSession(ctx, neo4j.SessionConfig{})
 	return driver, session
