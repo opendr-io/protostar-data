@@ -41,7 +41,7 @@ The data supports an edge-based view well: **1,235 of 1,290 sample events (96%) 
 
 ### No importer change needed: build it in Cypher
 
-Unlike views 1 and 2 (which must be built during import — nothing else stores the events), view 4 is *derived* from data already on the view-2 `ALERT` nodes. It can be materialized, and re-materialized at any time, with two idempotent statements run after import — automated by [`scripts/build_view4.py`](../scripts/build_view4.py) (`--teardown` to remove):
+Unlike views 1 and 2 (which must be built during import — nothing else stores the events), view 4 is *derived* from data already on the view-2 `ALERT` nodes. It can be materialized, and re-materialized at any time, with three idempotent statements run after import — automated by [`scripts/build_view4.py`](../scripts/build_view4.py) (`--teardown` to remove):
 
 ```cypher
 // 1. Connection edges, aggregated per (source, dest, port).
@@ -69,6 +69,36 @@ MATCH (e:ENTITY {ip: hip, entity: entity, entity_type: etype, view: 2})
 MERGE (e)-[:AT]->(h)
 ```
 
+```cypher
+// 3. Source-only alerts (the cloud shape: cloudtrail rows have a source_ip
+//    but no dest_ip and no host_ip) cannot form a CONNECTED_TO edge.
+//    Instead, link the alerting entity to the HOST for the source_ip it was
+//    observed operating from. Because HOSTs merge on ip, a cloud user seen
+//    from an IP that is also an endpoint entity's host_ip lands on the SAME
+//    HOST node, making endpoint <-> cloud-user relationships traversable.
+//    Skipped when source_ip = host_ip (:AT already expresses that).
+MATCH (a:ALERT {view: 2})
+WHERE a.source_ip <> '' AND a.dest_ip = '' AND a.entity <> ''
+      AND a.source_ip <> a.host_ip
+WITH a.source_ip AS sip, a.host_ip AS hip, a.entity AS entity,
+     a.entity_type AS etype, count(*) AS events
+MERGE (h:HOST {ip: sip, view: 4})
+WITH h, hip, entity, etype, events
+MATCH (e:ENTITY {ip: hip, entity: entity, entity_type: etype, view: 2})
+MERGE (e)-[s:SEEN_FROM]->(h)
+SET s.count = events
+```
+
+Cross-domain relationships between any two entities (endpoint, host, or cloud user) sharing or talking to the same infrastructure:
+
+```cypher
+// entities co-located on one HOST, e.g. endpoint at 10.10.10.10 and a
+// cloud user whose API calls originated from 10.10.10.10
+MATCH (e1:ENTITY)-[:AT|SEEN_FROM]->(h:HOST {view: 4})<-[:AT|SEEN_FROM]-(e2:ENTITY)
+WHERE e1 <> e2
+RETURN e1.entity, e1.entity_type, h.ip, e2.entity, e2.entity_type
+```
+
 Once built, entity-to-entity traffic is:
 
 ```cypher
@@ -84,7 +114,7 @@ WHERE NOT (x)<-[:AT]-()
 RETURN e, h, c, x
 ```
 
-and "unknown talkers" alone is `MATCH (h:HOST {view: 4}) WHERE NOT (h)<-[:AT]-() RETURN h`. Teardown/rebuild is `MATCH (n:HOST {view: 4}) DETACH DELETE n` followed by the two build statements.
+and "unknown talkers" alone is `MATCH (h:HOST {view: 4}) WHERE NOT (h)<-[:AT|SEEN_FROM]-() RETURN h`. Teardown/rebuild is `MATCH (n:HOST {view: 4}) DETACH DELETE n` followed by the build statements.
 
 **Direction** is preserved throughout: every edge points `source_ip` → `dest_ip`, and opposite flows are separate edges (the dominant sample pair is two arrows: external → entity with count 1,130, and entity → external with count 87 — the beacon-shaped half). The undirected `-[c:CONNECTED_TO]-` in the query above only widens the *match* to both directions; Browser still draws the stored arrows. For tabular directional analysis, split it:
 
@@ -101,7 +131,7 @@ RETURN e.entity, 'inbound' AS direction, x.ip AS src, h.ip AS dst, c.dest_port A
 ### Design notes
 
 - Because counts are recomputed (`SET c.count = events`), this view avoids the count-inflation-on-reimport problem the other views have — rebuild after any import and the numbers are exact.
-- The `:AT` edge deliberately links a view-2 `ENTITY` to a view-4 `HOST`, bending the views-are-disjoint convention at one explicit, documented point. The alternative — duplicating entity nodes into view 4 — keeps the convention pure at the cost of another parallel entity set.
+- The `:AT` and `:SEEN_FROM` edges deliberately link view-2 `ENTITY` nodes to view-4 `HOST` nodes, bending the views-are-disjoint convention at one explicit, documented point. They stay distinct edge types because they mean different things: `:AT` is "this entity lives at this host" (from `host_ip`), `:SEEN_FROM` is "this entity was observed operating from this IP" (from a source-only alert's `source_ip`). The alternative — duplicating entity nodes into view 4 — keeps the convention pure at the cost of another parallel entity set.
 - `dest_port` in the edge merge key gives one edge per host-pair *per port* (suits beacon-hunting; the dominant sample traffic is beacon-like). Dropping it gives one edge per pair with ports as a collected property.
 - The result maps *alerted-on* traffic only, not netflow.
 - Data-quality note: two sample entities have names like `" atomic weight: 4 - 172.16.4.4"` (leading space, IP embedded in the name) — worth cleaning upstream before this view makes them prominent.
