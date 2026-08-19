@@ -8,7 +8,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "172.18.0.1",
     "username": "kubernetes-admin",
     "user_agent": "kubectl/v1.31.2 (linux/amd64) kubernetes/5864a46"
@@ -22,7 +22,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "172.18.0.1",
     "username": "kubernetes-admin",
     "user_agent": "kubectl/v1.31.2 (linux/amd64) kubernetes/5864a46"
@@ -36,7 +36,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "172.18.0.1",
     "username": "kubernetes-admin",
     "user_agent": "kubectl/v1.31.2 (linux/amd64) kubernetes/5864a46"
@@ -50,7 +50,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "172.18.0.1",
     "username": "kubernetes-admin",
     "user_agent": "kubectl/v1.31.2 (linux/amd64) kubernetes/5864a46"
@@ -64,7 +64,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "172.18.0.1",
     "username": "kubernetes-admin",
     "user_agent": "kubectl/v1.31.2 (linux/amd64) kubernetes/5864a46"
@@ -78,7 +78,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "172.18.0.1",
     "username": "kubernetes-admin",
     "user_agent": "kubectl/v1.31.2 (linux/amd64) kubernetes/5864a46"
@@ -92,7 +92,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "172.18.0.1",
     "username": "-",
     "user_agent": "kubernetes-admin"
@@ -106,7 +106,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "172.18.0.1",
     "username": "-",
     "user_agent": "kubernetes-admin"
@@ -120,7 +120,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "172.18.0.1",
     "username": "-",
     "user_agent": "kubernetes-admin"
@@ -134,7 +134,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "172.18.0.1",
     "username": "-",
     "user_agent": "kubernetes-admin"
@@ -148,7 +148,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "172.18.0.1",
     "username": "-",
     "user_agent": "kubernetes-admin"
@@ -162,7 +162,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "",
     "username": "",
     "user_agent": ""
@@ -176,7 +176,7 @@
     "category": "",
     "mitre_tactic": "Execution",
     "entity": "nginx",
-    "entity_type": "kubernetes pod",
+    "entity_type": "k8 pod",
     "source_ip": "",
     "username": "",
     "user_agent": ""
